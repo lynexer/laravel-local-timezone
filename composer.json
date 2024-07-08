@@ -17,5 +17,12 @@
 		"psr-4": {
 			"Lynexer\\LaravelLocalTimezone\\": "src/"
 		}
-	}
+	},
+	"extra": {
+        "laravel": {
+            "providers": [
+                "Lynexer\\LaravelLocalTimezone\\TimezoneServiceProvider"
+            ]
+        }
+    }
 }
