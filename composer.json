@@ -1,0 +1,21 @@
+{
+	"name": "lynexer/laravel-local-timezone",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Kyle Graham",
+			"email": "kylegraham05@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=7.4",
+		"laravel/framework": "^11.0",
+		"nesbot/carbon": "^3.0",
+		"torann/geoip": "^3.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"lynexer\\LaravelLocalTimezone\\": "src/"
+		}
+	}
+}
