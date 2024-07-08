@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Facade;
  * @see \Lynexer\LaravelLocalTimezone\Timezone
  */
 class LocalTimezone extends Facade {
-    public static function getFacadeAcessor(): string {
+    public static function getFacadeAccessor(): string {
         return 'timezone';
     }
 }
