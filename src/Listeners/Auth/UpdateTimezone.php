@@ -1,12 +1,12 @@
 <?php
 
-namespace lynexer\LaravelLocalTimezone\Listeners\Auth;
+namespace Lynexer\LaravelLocalTimezone\Listeners\Auth;
 
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Passport\Events\AccessTokenCreated;
-use lynexer\LaravelLocalTimezone\Support\Traits\FlashesMessage;
-use lynexer\LaravelLocalTimezone\Support\Traits\RetrievesTimezone;
+use Lynexer\LaravelLocalTimezone\Support\Traits\FlashesMessage;
+use Lynexer\LaravelLocalTimezone\Support\Traits\RetrievesTimezone;
 
 class UpdateTimezone {
     use RetrievesTimezone, FlashesMessage;

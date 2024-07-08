@@ -1,6 +1,6 @@
 <?php
 
-namespace lynexer\LaravelLocalTimezone;
+namespace Lynexer\LaravelLocalTimezone;
 
 use Carbon\Carbon;
 

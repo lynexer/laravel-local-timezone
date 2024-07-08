@@ -1,6 +1,6 @@
 <?php
 
-namespace lynexer\LaravelLocalTimezone\Support\Traits;
+namespace Lynexer\LaravelLocalTimezone\Support\Traits;
 
 use InvalidArgumentException;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace lynexer\LaravelLocalTimezone\Support\Traits;
+namespace Lynexer\LaravelLocalTimezone\Support\Traits;
 
 trait RetrievesTimezone {
     protected function getTimezoneFromIp(?string $ip): array {

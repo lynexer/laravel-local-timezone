@@ -15,7 +15,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"lynexer\\LaravelLocalTimezone\\": "src/"
+			"Lynexer\\LaravelLocalTimezone\\": "src/"
 		}
 	}
 }

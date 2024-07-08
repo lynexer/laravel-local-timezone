@@ -1,12 +1,12 @@
 <?php
 
-namespace lynexer\LaravelLocalTimezone;
+namespace Lynexer\LaravelLocalTimezone;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use lynexer\LaravelLocalTimezone\Listeners\Auth\UpdateTimezone;
+use Lynexer\LaravelLocalTimezone\Listeners\Auth\UpdateTimezone;
 
 class TimezoneServiceProvider extends ServiceProvider {
     protected $defer = false;
@@ -25,7 +25,7 @@ class TimezoneServiceProvider extends ServiceProvider {
 
         AliasLoader::getInstance()->alias(
             'LocalTimezone',
-            \lynexer\LaravelLocalTimezone\Support\Facades\LocalTimezone::class
+            \Lynexer\LaravelLocalTimezone\Support\Facades\LocalTimezone::class
         );
 
         $this->registerEventListener();
