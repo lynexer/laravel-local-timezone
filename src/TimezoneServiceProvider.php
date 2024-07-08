@@ -12,10 +12,20 @@ class TimezoneServiceProvider extends ServiceProvider {
 
     public function boot(): void {
         if (!class_exists('AddTimezoneToUsersTable')) {
-            $this->publishes([__DIR__ . '/database/migrations/add_timezone_to_users_table.php.stub' => database_path('/migrations/' . date('Y_m_d_His') . '_add_timezone_to_users_table.php')], 'migrations');
+            $this->publishes(
+                [
+                    __DIR__ . '/database/migrations/add_timezone_to_users_table.php.stub' => database_path(
+                        '/migrations/' . date('Y_m_d_His') . '_add_timezone_to_users_table.php'
+                    )
+                ],
+                'migrations'
+            );
         }
 
-        AliasLoader::getInstance()->alias('LocalTimezone', \lynexer\LaravelLocalTimezone\Support\Facades\LocalTimezone::class);
+        AliasLoader::getInstance()->alias(
+            'LocalTimezone',
+            \lynexer\LaravelLocalTimezone\Support\Facades\LocalTimezone::class
+        );
 
         $this->registerEventListener();
 
@@ -29,6 +39,12 @@ class TimezoneServiceProvider extends ServiceProvider {
     }
 
     private function registerEventListener(): void {
-        Event::listen(config('timezone.timezone_check.events', null) ?? [\Illuminate\Auth\Events\Login::class, \Laravel\Passport\Events\AccessTokenCreated::class], config('timezone.timezone_check.listener', null) ?? UpdateTimezone::class);
+        Event::listen(
+            config('timezone.timezone_check.events', null) ?? [
+                \Illuminate\Auth\Events\Login::class,
+                \Laravel\Passport\Events\AccessTokenCreated::class
+            ],
+            config('timezone.timezone_check.listener', null) ?? UpdateTimezone::class
+        );
     }
 }

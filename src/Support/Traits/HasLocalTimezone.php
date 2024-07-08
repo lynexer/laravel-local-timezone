@@ -8,7 +8,7 @@ trait HasLocalTimezone {
     }
 
     public function getTimezoneOverride(): bool {
-        return $this->detect_timezone;
+        return $this->override_timezone;
     }
 
     public function setTimezone(?string $timezone): self {

@@ -75,7 +75,13 @@ class UpdateTimezone {
             $user = Auth::user();
         }
 
-        if ($user === null || !method_exists($user, 'getTimezone') || !method_exists($user, 'getTimezoneOverride') || !method_exists($user, 'setTimezone') || !method_exists($user, 'setTimezoneOverride')) {
+        if (
+            $user === null ||
+            !method_exists($user, 'getTimezone') ||
+            !method_exists($user, 'getTimezoneOverride') ||
+            !method_exists($user, 'setTimezone') ||
+            !method_exists($user, 'setTimezoneOverride')
+        ) {
             return;
         }
 

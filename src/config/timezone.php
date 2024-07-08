@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Timezone
@@ -40,10 +39,8 @@ return [
     */
 
     'lookup' => [
-        'server' => [
-            'REMOTE_ADDR',
-        ],
-        'headers' => [],
+        'server' => ['REMOTE_ADDR'],
+        'headers' => []
     ],
 
     /*
@@ -96,18 +93,18 @@ return [
     'messages' => [
         'fail' => [
             'key' => 'error',
-            'message' => 'We cannot determine your timezone',
+            'message' => 'We cannot determine your timezone'
         ],
 
         'default' => [
             'key' => 'warning',
-            'message' => 'We cannot determine your timezone and have set it to default: %s',
+            'message' => 'We cannot determine your timezone and have set it to default: %s'
         ],
 
         'success' => [
             'key' => 'info',
-            'message' => 'We have set your timezone to %s',
-        ],
+            'message' => 'We have set your timezone to %s'
+        ]
     ],
 
     'timezone_check' => [
@@ -146,6 +143,6 @@ return [
         |
         */
 
-        'listener' => null,
-    ],
+        'listener' => null
+    ]
 ];

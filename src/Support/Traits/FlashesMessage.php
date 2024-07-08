@@ -5,7 +5,7 @@ namespace lynexer\LaravelLocalTimezone\Support\Traits;
 use InvalidArgumentException;
 
 trait FlashesMessage {
-    protected function flashMessage(string $type, string $message, ?string $key) : void {
+    protected function flashMessage(string $type, string $message, ?string $key): void {
         match ($type) {
             'laravel' => $this->flashLaravelMessage($message, $key),
             'laracasts' => $this->flashLaracastsMessage($message),
@@ -17,7 +17,9 @@ trait FlashesMessage {
     }
 
     protected function flashLaravelMessage(string $message, ?string $key): void {
-        request()->session()->flash($key ?? config('timezone.messages.default.key', 'warning'), $message);
+        request()
+            ->session()
+            ->flash($key ?? config('timezone.messages.default.key', 'warning'), $message);
     }
 
     protected function flashLaracastsMessage(string $message): void {

@@ -11,13 +11,19 @@ class AddTimezoneToUsersTable extends Migration {
     public function up(): void {
         if (!Schema::hasColumn('users', 'timezone')) {
             Schema::table('users', function (Blueprint $table): void {
-                $table->string('timezone')->after('remember_token')->nullable();
+                $table
+                    ->string('timezone')
+                    ->after('remember_token')
+                    ->nullable();
             });
         }
 
         if (!Schema::hasColumn('users', 'override_timezone')) {
             Schema::table('users', function (Blueprint $table): void {
-                $table->boolean('override_timezone')->after('timezone')->default(false);
+                $table
+                    ->boolean('override_timezone')
+                    ->after('timezone')
+                    ->default(false);
             });
         }
     }
