@@ -3,6 +3,7 @@
 namespace lynexer\LaravelLocalTimezone;
 
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use lynexer\LaravelLocalTimezone\Listeners\Auth\UpdateTimezone;
@@ -30,6 +31,10 @@ class TimezoneServiceProvider extends ServiceProvider {
         $this->registerEventListener();
 
         $this->publishes([__DIR__ . '/config/timezone.php' => config_path('timezone.php')], 'config');
+
+        Blade::directive('localDate', function (string $expression) {
+            return "<?php echo e(call_user_func_array([Timezone:class, 'convertToLocal'], [$expression])); ?>";
+        });
     }
 
     public function register(): void {
