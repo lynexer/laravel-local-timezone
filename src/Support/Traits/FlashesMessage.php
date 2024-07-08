@@ -2,24 +2,37 @@
 
 namespace lynexer\LaravelLocalTimezone\Support\Traits;
 
+use InvalidArgumentException;
+
 trait FlashesMessage {
-    protected function flashLaravelMessage(string $key, string $message): void {
-        request()->session()->flash($key, $message);
+    protected function flashMessage(string $type, string $message, ?string $key) : void {
+        match ($type) {
+            'laravel' => $this->flashLaravelMessage($message, $key),
+            'laracasts' => $this->flashLaracastsMessage($message),
+            'mercuryseries' => $this->flashMercuryseriesMessage($message),
+            'spatie' => $this->flashSpatieMessage($message),
+            'mckenziearts' => $this->flashMckenzieartsMessage($message),
+            default => throw new InvalidArgumentException("Invalid message type: $type")
+        };
     }
 
-    protected function flashLaracastsMessage(string $key, string $message): void {
+    protected function flashLaravelMessage(string $message, ?string $key): void {
+        request()->session()->flash($key ?? config('timezone.messages.default.key', 'warning'), $message);
+    }
+
+    protected function flashLaracastsMessage(string $message): void {
         flash()->success($message);
     }
 
-    protected function flashMercuryseriesMessage(string $key, string $message): void {
+    protected function flashMercuryseriesMessage(string $message): void {
         flashy()->success($message);
     }
 
-    protected function flashSpatieMessage(string $key, string $message): void {
+    protected function flashSpatieMessage(string $message): void {
         flash()->success($message);
     }
 
-    protected function flashMckenzieartsMessage(string $key, string $message): void {
+    protected function flashMckenzieartsMessage(string $message): void {
         notify()->success($message);
     }
 }
